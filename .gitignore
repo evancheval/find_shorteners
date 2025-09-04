@@ -2,3 +2,6 @@
 .python-version
 .*
 repos
+bug/*
+*.md
+minet/*
