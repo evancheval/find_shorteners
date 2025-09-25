@@ -1,5 +1,0 @@
-xan select links ../postbayrou.csv | xan explode -D links | xan freq -s links -A | xan drop field | xan rename link -s value > links.csv
-minet resolve link -i links.csv > resolved_links.csv
-minet url-parse link -i resolved_links.csv | xan search -s probably_shortened no -e | xan select link,count,resolved_url,domain_name | xan rename original_domain -s domain_name | xan search -Ns original_domain > original_domains.csv
-minet url-parse resolved_url -i original_domains.csv | xan select link,count,resolved_url,domain_name,original_domain | xan rename resolved_domain -s domain_name | xan search -Ns resolved_domain > domains.csv
-xan filter 'original_domain ne resolved_domain' domains.csv | xan select link,original_domain,resolved_domain > probably_shortened_not_already_in_ural.csv

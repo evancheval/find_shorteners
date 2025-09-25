@@ -3,5 +3,7 @@
 .*
 repos
 bug/*
-*.md
+# *.md
 minet/*
+*.json
+__pycache__

@@ -1,5 +1,6 @@
 import csv
 import argparse
+import sys
 
 parser = argparse.ArgumentParser(description="Extract URLs from posts CSV file.")
 parser.add_argument("file_path", help="Path to the input CSV file")
@@ -28,6 +29,5 @@ with open(file_path, "r") as file:
 
     result += [[url, occur] for url, occur in links_dic.items()]
 
-with open("extracted_url_from_" + file_path, "w") as output:
-    writer = csv.writer(output, delimiter=",")
-    writer.writerows(result)
+writer = csv.writer(sys.stdout, delimiter=",")
+writer.writerows(result)
